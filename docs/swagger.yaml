@@ -1,0 +1,57 @@
+basePath: /api
+definitions:
+  compA.Result:
+    properties:
+      result:
+        type: integer
+    type: object
+host: example.com
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: Docs example.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /compA:
+    get:
+      description: Returns "Hello World"
+      operationId: get-hello-world
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Hello there!
+  /compA/{x}/{y}:
+    get:
+      description: Get sum of 2 numbers
+      operationId: get-sum-by-int
+      parameters:
+      - description: First number
+        in: path
+        name: x
+        required: true
+        type: integer
+      - description: Second number
+        in: path
+        name: "y"
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/compA.Result'
+        "400":
+          description: ""
+      summary: Sum 2 numbers
+swagger: "2.0"

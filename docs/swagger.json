@@ -1,0 +1,84 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Docs example.",
+        "title": "Swagger Example API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "example.com",
+    "basePath": "/api",
+    "paths": {
+        "/compA": {
+            "get": {
+                "description": "Returns \"Hello World\"",
+                "summary": "Hello there!",
+                "operationId": "get-hello-world",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/compA/{x}/{y}": {
+            "get": {
+                "description": "Get sum of 2 numbers",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Sum 2 numbers",
+                "operationId": "get-sum-by-int",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "First number",
+                        "name": "x",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Second number",
+                        "name": "y",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/compA.Result"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "compA.Result": {
+            "type": "object",
+            "properties": {
+                "result": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
