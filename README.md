@@ -14,7 +14,7 @@ This template uses [air](https://github.com/cosmtrek/air) with hot reload featur
 
 1. Copy `.env.example` to `.env` and modify the env value as needed
 2. `go mod download` to install all required dependencies
-3. `air -d .air.toml`: start a dev server with hot reload (auto updates swagger)
+3. `air .air.toml`: start a dev server with hot reload (auto updates swagger)
 4. `go test -v ./...`: run all tests on all packages
 
 **Note:** set `GO_ENV` to `production` to run Gin app in release mode
