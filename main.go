@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -53,7 +52,7 @@ func main() {
 	port := os.Getenv("PORT")
 
 	// Swagger
-	url := ginSwagger.URL(fmt.Sprintf(":%s/swagger/doc.json", port))
+	url := ginSwagger.URL(port + "/swagger/doc.json")
 	app.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	// health check endpoint
@@ -66,5 +65,5 @@ func main() {
 	compA.RegisterRoute(api)
 
 	// run app
-	app.Run(fmt.Sprintf(":%s", port))
+	app.Run(":" + port)
 }
